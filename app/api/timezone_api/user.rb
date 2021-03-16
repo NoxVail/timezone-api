@@ -5,7 +5,7 @@ class TimezoneApi::User < Grape::API
   namespace :user do
     desc 'weather'
     get do
-      interactor = Organizers::Weather.call(token: headers['Authorization'])
+      interactor = Organizers::Weather.(token: headers['Authorization'])
       error!(interactor.error) unless interactor.success?
 
       present interactor.result, with: TimezoneApi::Entities::Weather
@@ -13,10 +13,10 @@ class TimezoneApi::User < Grape::API
 
     desc 'registration'
     params do
-      requires :email, type: String
+      requires :email, type: String, allow_blank: false, regexp: User::VALID_EMAIL
     end
     post :register do
-      interactor = Organizers::Registration.call(email: declared_params[:email])
+      interactor = Organizers::Registration.(email: declared_params[:email])
       error!(interactor.error) unless interactor.success?
 
       present interactor.result, with: TimezoneApi::Entities::Registration
@@ -25,7 +25,7 @@ class TimezoneApi::User < Grape::API
     desc 'timezones addition'
     params { use :timezones }
     post :tz do
-      interactor = Organizers::TimezonesAdd.call(token: headers['Authorization'], timezones: declared_params[:timezones])
+      interactor = Organizers::TimezonesAdd.(token: headers['Authorization'], timezones: declared_params[:timezones])
       error!(interactor.error) unless interactor.success?
 
       present interactor.result, with: TimezoneApi::Entities::TimezonesAdd
@@ -34,7 +34,7 @@ class TimezoneApi::User < Grape::API
     desc 'timezones deletion'
     params { use :timezones }
     delete :tz do
-      interactor = Organizers::TimezonesDelete.call(token: headers['Authorization'], timezones: declared_params[:timezones])
+      interactor = Organizers::TimezonesDelete.(token: headers['Authorization'], timezones: declared_params[:timezones])
       error!(interactor.error) unless interactor.success?
 
       present interactor.result, with: TimezoneApi::Entities::TimezonesDelete

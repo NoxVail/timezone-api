@@ -1,0 +1,47 @@
+{
+  "coord": {
+    "lon": 30.5167,
+    "lat": 50.4333
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 2.82,
+    "feels_like": -1.83,
+    "temp_min": 2.78,
+    "temp_max": 3,
+    "pressure": 1005,
+    "humidity": 87
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 4,
+    "deg": 100
+  },
+  "rain": {
+    "1h": 0.1
+  },
+  "clouds": {
+    "all": 75
+  },
+  "dt": 1615932053,
+  "sys": {
+    "type": 1,
+    "id": 8903,
+    "country": "UA",
+    "sunrise": 1615954043,
+    "sunset": 1615997114
+  },
+  "timezone": 7200,
+  "id": 703448,
+  "name": "Kyiv",
+  "cod": 200,
+  "tz_name": "Europe/Kiev"
+}

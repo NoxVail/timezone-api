@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  test_app:
+    container_name: test_timezone_api
+    command: /bin/sh -c "rspec"
+    build: .
+    env_file: .env.test
+    volumes:
+      - .:/app:rw
+    tty: true
+    stdin_open: true
+    ports:
+      - 3001:3000
+    depends_on:
+      - test_db
+
+  test_db:
+    container_name: test_timezone_api_db
+    image: postgres:13.2-alpine
+    env_file: .env.test
+    ports:
+      - 5433:5432
+    volumes:
+      - data_postgres:/var/lib/postgresql/data
+
+volumes:
+  data_postgres:
+    driver: local

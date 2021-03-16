@@ -16,9 +16,11 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'httplog'
   gem 'pry-rails'
   gem 'rspec-grape'
   gem 'rspec-rails'
+  gem 'webmock'
 end
 
 group :development do

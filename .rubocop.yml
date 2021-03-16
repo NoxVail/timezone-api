@@ -6,11 +6,10 @@ AllCops:
     - db/schema.rb
     - db/migrate/*.rb
     - config/**/*
+    - spec/**/*_spec.rb
 Documentation:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 150
 Metrics/AbcSize:
   Max: 30
 Metrics/BlockLength:
@@ -19,11 +18,15 @@ Metrics/BlockLength:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/LambdaCall:
+  EnforcedStyle: braces
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
   SupportedStyles:
     - nested
     - compact
+Layout/LineLength:
+  Max: 150
 Layout/HashAlignment:
   EnforcedHashRocketStyle:
     - key
